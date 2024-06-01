@@ -288,6 +288,7 @@ require('lazy').setup({
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+        ['<leader>n'] = { name = '[N]ew', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
       }
       -- visual mode
@@ -896,14 +897,14 @@ require('lazy').setup({
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
-      vim.keymap.set('n', '<F3>', ':Neotree toggle<CR>')
+      vim.keymap.set('n', '<leader>tn', ':Neotree toggle<CR>', { desc = '[T]oggle [N]eotree' })
     end,
   },
   { --  Floating Terminal
     'voldikss/vim-floaterm',
     config = function()
-      vim.keymap.set('n', '<leader>ft', ':FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 fish <CR>')
-      vim.keymap.set('n', 't', ':FloatermToggle myfloat <CR>')
+      vim.keymap.set('n', '<leader>nt', ':FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 fish <CR>', { desc = '[N]ew [T]erminal' })
+      vim.keymap.set('n', '<leader>tt', ':FloatermToggle myfloat <CR>', { desc = '[T]oggle [T]erminal' })
       vim.keymap.set('t', '<Esc>', '<C-\\><C-n>:q<CR>')
     end,
   },

@@ -770,6 +770,8 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        cs = { 'clang-format' },
+        rust = { 'rustfmt', lsp_format = 'fallback' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -941,7 +943,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'rust'},
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'rust' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -1006,7 +1008,7 @@ require('lazy').setup({
     config = function()
       vim.keymap.set('n', '<leader>nt', ':FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 fish <CR>', { desc = '[N]ew [T]erminal' })
       vim.keymap.set('n', '<leader>tt', ':FloatermToggle myfloat <CR>', { desc = '[T]oggle [T]erminal' })
-      vim.keymap.set('t', '<Esc>', '<C-\\><C-n>:q<CR>')
+      vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>:q<CR>')
     end,
   },
 }, {

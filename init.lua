@@ -461,6 +461,11 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Search hidden files in directory
+      vim.keymap.set('n', '<leader>sh', function()
+        builtin.find_files { find_command = { 'rg', '--hidden', '--files' } }
+      end, { desc = '[S]earch [H]idden files' })
     end,
   },
 
